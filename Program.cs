@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace LeetCode1
 {
+    internal class Program
     class HelloWorld
     {
 
@@ -167,12 +168,16 @@ namespace LeetCode1
         }
 
         public static string GcdOfStrings(string word1, string word2)
-        {
+    {
+        static void Main(string[] args)
             string res = "";
             int len1 = word1.Length;
             int len2 = word2.Length;
             for (int i = 0; i < Math.Max(len1, len2); i++)
-            {
+        {
+            int[] result = new int[2];
+            int[] arr = { 1, 3, 3, 4, 5 };
+            result = TwoSum(arr, 6);
 
             }
 
@@ -182,6 +187,7 @@ namespace LeetCode1
 
             return res;
         }
+        public static int[] TwoSum(int[] nums, int target)
 
         public static string FirstPalindrome(string[] words)
         {
@@ -198,15 +204,21 @@ namespace LeetCode1
                 int dd = words[i].Length / 2;
                 int dm = words[i].Length % 2;
                 for (int j = 0; j < dd; j++)
-                {
+        {
+            int[] arr = new int[2]; 
+            for (int i=0; i < nums.Length; i++)
                     if (charArray1[j] == charArray[j])
-                    {
+            {
+                int t = target - nums[i];
                         res += charArray1[j];
                     }
 
+                if (nums.Contains(t))
                 }
                 if (res.Length == dd)
                 {
+                    int k = Array.IndexOf(nums, t);
+                    if (k != i)
 
                     res = new string(charArray);
                     Console.WriteLine(res);
@@ -214,17 +226,20 @@ namespace LeetCode1
 
                 }
                 else
-                {
+                    {
+                        arr[0] = i;
+                        arr[1] = k;
                     res = "";
+                    }
+
+
+
                 }
-
-
-
-            }
             Console.WriteLine(res);
             return res;
-        }
-
+            }
+           
+            return arr;
         public static int MajorityElement(int[] nums)
         {
             int res = 0;
